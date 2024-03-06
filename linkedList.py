@@ -7,6 +7,21 @@ class SLL:
         self.start = start
     def isEmpty(self):
         return self.start == None
-    def insert_at_start(self,item):
-        first = Node()
-        first.next=
+    def insert_at_start(self,data):
+        n = Node(data, self.start)
+        self.start = n
+    def insert_at_last(self, data):
+        n= Node(data)
+        if not self.isEmpty():
+            temp = self.start
+            while temp.next is not None:
+                temp = temp.next
+            temp.next = n
+        else:
+            self.start = n
+
+            
+        
+
+
+myList = SLL()
