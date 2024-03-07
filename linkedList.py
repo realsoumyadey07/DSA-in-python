@@ -58,10 +58,14 @@ class SLL:
                 self.start = None
         else:
             temp = self.start
-            while temp.next is not None:
-                if temp.item is data:
-                    temp = temp.next
-                temp = temp.next  
+            if temp.item is data:
+                self.start = temp.next
+            else:
+                while temp.next is not None:
+                    if temp.next.item is data:
+                        temp.next = temp.next.next
+                        break
+                    temp= temp.next
 
 
 myList = SLL()
@@ -69,4 +73,5 @@ myList.insert_at_start(20)
 myList.insert_at_last(34)
 myList.insert_at_last(56)
 myList.insert_at_last(78)
+myList.delete_item(34)
 myList.print_list()
